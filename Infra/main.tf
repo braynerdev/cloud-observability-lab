@@ -37,6 +37,13 @@ resource "aws_security_group" "ssh_access" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 3004
+    to_port     = 3004
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -47,7 +54,7 @@ resource "aws_security_group" "ssh_access" {
 
 resource "aws_instance" "web" {
   ami                         = "ami-091138d0f0d41ff90"
-  instance_type               = "t3.micro"
+  instance_type               = "t3.small"
   vpc_security_group_ids      = [aws_security_group.ssh_access.id]
   associate_public_ip_address = true
   key_name                    = "cloud-observability-lab"
