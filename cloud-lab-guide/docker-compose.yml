@@ -1,9 +1,6 @@
 services:
   cloud-lab-guide:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: cloud-lab-guide:latest
+    image: ghcr.io/braynerdev/cloud-lab-guide:latest
     ports:
       - target: 3004
         published: 3004
