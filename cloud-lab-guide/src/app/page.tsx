@@ -38,18 +38,9 @@ export default function TerraformPage() {
         code=""
         language="folder"
       />
-
-      <StepCard
-        step={4}
-        title="Baixar o AWS CLI"
-        badge="Badge"
-        description="Baixar o AWS CLI para o seu sistema operacional."
-        code="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html"
-        language="url"
-      />
       
       <StepCard
-        step={5}
+        step={4}
         title="Criar um usuário IAM"
         badge="Badge"
         description="Criar um usuário IAM com as permissão de AdministratorAccess."
@@ -58,7 +49,7 @@ export default function TerraformPage() {
       />
 
       <StepCard
-        step={6}
+        step={5}
         title="Baixar o AWS CLI"
         badge="Badge"
         description="Baixar o AWS CLI para o seu sistema operacional."
@@ -67,7 +58,7 @@ export default function TerraformPage() {
       />
 
       <StepCard
-        step={7}
+        step={6}
         title="Configurar o AWS CLI"
         badge="Badge"
         description="Configurar o AWS CLI com as credenciais do usuário IAM. Chave de acesso e chave secreta e região."
@@ -76,7 +67,7 @@ export default function TerraformPage() {
       />
 
       <StepCard
-        step={8}
+        step={7}
         title="Verificar a configuração"
         badge="Badge"
         description="Verificar se a configuração foi feita corretamente."

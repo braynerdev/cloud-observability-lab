@@ -60,7 +60,7 @@ resource "aws_security_group" "ssh_access" {
 
 resource "aws_instance" "web" {
   ami                         = "ami-091138d0f0d41ff90"
-  instance_type               = "t3.micro"
+  instance_type               = "t3.small"
   vpc_security_group_ids      = [aws_security_group.ssh_access.id]
   associate_public_ip_address = true
   key_name                    = "cloud-observability-lab"
@@ -188,7 +188,7 @@ export default function MainTfPage() {
           <ul className="space-y-1.5 list-disc list-inside text-sm">
             <li><code className="bg-muted px-1 rounded text-xs">resource "aws_instance" "web"</code> — cria uma instância EC2 com identificador local <code className="bg-muted px-1 rounded text-xs">web</code></li>
             <li><code className="bg-muted px-1 rounded text-xs">ami = "ami-091138d0f0d41ff90"</code> — imagem Amazon Linux 2 disponível em us-east-1 (sistema operacional)</li>
-            <li><code className="bg-muted px-1 rounded text-xs">instance_type = "t3.micro"</code> — 2 vCPUs e 1 GB de RAM, coberto pelo Free Tier da AWS</li>
+            <li><code className="bg-muted px-1 rounded text-xs">instance_type = "t3.small"</code> — 2 vCPUs e 2 GB de RAM, suficiente para rodar Portainer + stack de monitoramento (não coberto pelo Free Tier)</li>
             <li><code className="bg-muted px-1 rounded text-xs">vpc_security_group_ids</code> — vincula o Security Group criado no passo anterior</li>
             <li><code className="bg-muted px-1 rounded text-xs">associate_public_ip_address = true</code> — garante que a instância receba um IP público acessível pela internet</li>
             <li><code className="bg-muted px-1 rounded text-xs">key_name = "cloud-observability-lab"</code> — nome do par de chaves SSH criado na AWS para acesso remoto à instância</li>
@@ -197,7 +197,7 @@ export default function MainTfPage() {
         }
         code={`resource "aws_instance" "web" {
   ami                         = "ami-091138d0f0d41ff90"
-  instance_type               = "t3.micro"
+  instance_type               = "t3.small"
   vpc_security_group_ids      = [aws_security_group.ssh_access.id]
   associate_public_ip_address = true
   key_name                    = "cloud-observability-lab"
