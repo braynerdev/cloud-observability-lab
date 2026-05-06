@@ -43,6 +43,13 @@ resource "aws_security_group" "ssh_access" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 3004
+    to_port     = 3004
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -126,6 +133,7 @@ export default function MainTfPage() {
             <li><code className="bg-muted px-1 rounded text-xs">ingress porta 22</code> — libera entrada SSH de qualquer IP (<code className="bg-muted px-1 rounded text-xs">0.0.0.0/0</code>)</li>
             <li><code className="bg-muted px-1 rounded text-xs">ingress porta 9000</code> — libera acesso ao Portainer</li>
             <li><code className="bg-muted px-1 rounded text-xs">ingress porta 3000</code> — libera acesso à aplicação (ex: Swarm Monitor)</li>
+            <li><code className="bg-muted px-1 rounded text-xs">ingress porta 3004</code> — libera acesso a uma segunda aplicação publicada nessa porta</li>
             <li><code className="bg-muted px-1 rounded text-xs">egress protocol = "-1"</code> — permite <strong>todo</strong> tráfego de saída (sem restrições)</li>
             <li><code className="bg-muted px-1 rounded text-xs">cidr_blocks = ["0.0.0.0/0"]</code> — aceita tráfego de qualquer endereço IP do mundo</li>
           </ul>
@@ -151,6 +159,13 @@ export default function MainTfPage() {
   ingress {
     from_port   = 3000
     to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 3004
+    to_port     = 3004
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
