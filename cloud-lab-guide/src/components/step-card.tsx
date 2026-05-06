@@ -10,7 +10,7 @@ interface StepCardProps {
   description: React.ReactNode;
   code?: string;
   language?: string;
-  badge?: string;
+  badge?: React.ReactNode;
   className?: string;
   children?: React.ReactNode;
 }

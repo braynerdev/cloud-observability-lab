@@ -1,6 +1,6 @@
 import { PageHeader } from "@/components/page-header";
 import { StepCard } from "@/components/step-card";
-import { Activity } from "lucide-react";
+import { Activity, AlertTriangle } from "lucide-react";
 
 export default function SwarmMonitorPage() {
   return (
@@ -15,7 +15,12 @@ export default function SwarmMonitorPage() {
       <StepCard
         step={1}
         title="Adicionar a label obrigatória nos nós"
-        badge="⚠️ Obrigatório"
+        badge={
+          <span className="inline-flex items-center gap-1">
+            <AlertTriangle className="h-3 w-3" />
+            Obrigatório
+          </span>
+        }
         description={
           <div className="space-y-2 text-sm">
             <p>
