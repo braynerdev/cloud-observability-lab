@@ -13,7 +13,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
     networks:
-      - agent_network
+      - portainer_network
     deploy:
       mode: global
       placement:
@@ -27,7 +27,7 @@ services:
     volumes:
       - portainer_data:/data
     networks:
-      - agent_network
+      - portainer_network
     deploy:
       mode: replicated
       replicas: 1
@@ -35,7 +35,7 @@ services:
         constraints: [ node.role == manager ]
 
 networks:
-  agent_network:
+  portainer_network:
     external: true
 
 volumes:
@@ -114,7 +114,7 @@ sudo sh get-docker.sh`}
         title="Criar a rede para o Portainer"
         badge="Docker Network"
         description="Crie a rede overlay que será usada pelo agente e pelo Portainer:"
-        code="docker network create --driver=overlay agent_network"
+        code="docker network create --driver=overlay portainer_network"
         language="bash"
       />
 
